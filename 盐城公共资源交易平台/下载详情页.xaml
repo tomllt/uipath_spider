@@ -1,0 +1,250 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="下载详情页" this:下载详情页.download_path="download/" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="br" Type="InArgument(ui:Browser)" />
+    <x:Property Name="download_path" Type="InArgument(x:String)" />
+    <x:Property Name="row" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="download_mainlink" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>683,3197</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Orchestrator.Client</x:String>
+      <x:String>UiPath.Orchestrator.Client.Models</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.JSON.Activities</x:String>
+      <x:String>UiPath.REST.Activities</x:String>
+      <x:String>UiPath.SOAP.Activities</x:String>
+      <x:String>UiPath.XML.Activities</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="下载详情页" sap:VirtualizedContainerService.HintSize="643,3037" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Content">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="hasDownload" />
+      <Variable x:TypeArguments="x:String" Default="[download_mainlink+row(&quot;detail_url&quot;).ToString]" Name="detail_url" />
+      <Variable x:TypeArguments="x:String" Name="infoid">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InjectJsScript InputParameter="{x:Null}" DisplayName="插入 Js 脚本 'DIV'" sap:VirtualizedContainerService.HintSize="621,134" sap2010:WorkflowViewState.IdRef="InjectJsScript_2" ScriptCode="Function getinfoid(str){&#xD;&#xA;    var regexPattern = /'([^']+)'/;&#xD;&#xA;&#x9;var matchResult = str.match(regexPattern);&#xD;&#xA;&#xD;&#xA;&#x9;// 如果匹配成功，获取捕获的组&#xD;&#xA;&#x9;If (matchResult &amp;&amp; matchResult.length &gt; 1) {&#xD;&#xA;&#x9;    Return matchResult[1];&#xD;&#xA;&#x9;} Else {&#xD;&#xA;&#x9;    Return '';&#xD;&#xA;&#x9;}&#xD;&#xA;}">
+      <ui:InjectJsScript.ScriptOutput>
+        <OutArgument x:TypeArguments="x:String">[infoid]</OutArgument>
+      </ui:InjectJsScript.ScriptOutput>
+      <ui:InjectJsScript.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="1db8bb7e250da2e2331db9f15698cbac" Selector="&lt;html app='chrome.exe' title='镇江市公共资源交易中心' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div' idx='4' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:InjectJsScript.Target>
+    </ui:InjectJsScript>
+    <ui:PathExists DisplayName="路径存在" Exists="[hasDownload]" sap:VirtualizedContainerService.HintSize="621,91" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[download_path+row(&quot;project_name&quot;).ToString+&quot;/招标公告.txt&quot;]" PathType="File" />
+    <If Condition="[hasDownload and infoid=&quot;&quot;]" DisplayName="IF条件" sap:VirtualizedContainerService.HintSize="621,2608" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Else>
+        <Sequence DisplayName="序列" sap:VirtualizedContainerService.HintSize="496,2455" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InjectJsScript ScriptOutput="{x:Null}" DisplayName="插入 Js 脚本 'DIV'" sap:VirtualizedContainerService.HintSize="474,134" sap2010:WorkflowViewState.IdRef="InjectJsScript_1" InputParameter="[infoid]" ScriptCode="function click(infoid){&#xD;&#xA;var script=document.createElement('script');&#xD;&#xA;script.src='https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js';&#xD;&#xA;script.onload=function() {&#xD;&#xA;$.get('/services/zjggzynew/getDetailPath?infoId=' + infoid + '&amp;response=application/json', function (msg) {&#xD;&#xA;        if (msg.return !== '' &amp;&amp; msg.return !== null) {&#xD;&#xA;            window.open('http://ggzy.zhenjiang.gov.cn' + msg.return);&#xD;&#xA;        }&#xD;&#xA;    })&#xD;&#xA;}();&#xD;&#xA;document.head.appendChild(script);&#xD;&#xA;}">
+            <ui:InjectJsScript.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="cec9e41691a7f757225fe5560cc94266" Selector="&lt;html app='chrome.exe' title='镇江市公共资源交易中心' /&gt;&lt;webctrl css-selector='body' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:InjectJsScript.Target>
+          </ui:InjectJsScript>
+          <ui:CommentOut DisplayName="注释掉" sap:VirtualizedContainerService.HintSize="474,261" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="忽略的活动" sap:VirtualizedContainerService.HintSize="336,183" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:NavigateTo Browser="[br]" DisplayName="导航到" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="[detail_url]" />
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
+          <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[br]" BrowserType="Chrome" DisplayName="附加浏览器 '          Page'" sap:VirtualizedContainerService.HintSize="474,1794" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="c2b9b9b93609a06080a94b3c2aacac26">
+            <ui:BrowserScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="序列" sap:VirtualizedContainerService.HintSize="460,1648" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="FileTable" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="438,964" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:GetFullText DisplayName="获取全文本 'DIV'" sap:VirtualizedContainerService.HintSize="416,106" sap2010:WorkflowViewState.IdRef="GetFullText_1" IgnoreHidden="True">
+                      <ui:GetFullText.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="7a26594c8bbf99f11a58e70d968e69a3" Selector="&lt;webctrl class='article-info' idx='1' tag='DIV' /&gt;" WaitForReady="COMPLETE" />
+                      </ui:GetFullText.Target>
+                      <ui:GetFullText.Text>
+                        <OutArgument x:TypeArguments="x:String">[Content]</OutArgument>
+                      </ui:GetFullText.Text>
+                    </ui:GetFullText>
+                    <ui:CommentOut DisplayName="注释掉" sap:VirtualizedContainerService.HintSize="416,308" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="忽略的活动" sap:VirtualizedContainerService.HintSize="336,230" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:ExtractData NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[FileTable]" DelayBetweenPagesMS="300" DisplayName="提取附件" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='file_name' attr='text' name2='file_url' attr2='href'&gt;&lt;webctrl tag='li'/&gt;&lt;webctrl tag='a' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ExtractData_3" MaxNumberOfResults="0">
+                            <ui:ExtractData.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="1fa365894f5c46a946f13784f3c09129" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul' tag='UL' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:ExtractData.Target>
+                          </ui:ExtractData>
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                    </ui:CommentOut>
+                    <ui:LogMessage DisplayName="日志消息" sap:VirtualizedContainerService.HintSize="416,95" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[Content]" />
+                    <ui:CreateDirectory ContinueOnError="True" DisplayName="创建目录" sap:VirtualizedContainerService.HintSize="416,22" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[download_path+row(&quot;project_name&quot;).ToString+&quot;/&quot;]" />
+                    <ui:CreateFile ContinueOnError="True" DisplayName="创建文件" sap:VirtualizedContainerService.HintSize="416,22" sap2010:WorkflowViewState.IdRef="CreateFile_1" Name="招标公告.txt" Path="[&quot;海口/&quot;+row(&quot;project_name&quot;).ToString+&quot;/&quot;]" />
+                    <ui:WriteTextFile DisplayName="写入文本文件" FileName="[download_path+row(&quot;project_name&quot;).ToString+&quot;/招标公告.txt&quot;]" sap:VirtualizedContainerService.HintSize="416,87" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[Content]" />
+                  </Sequence>
+                  <ui:CommentOut DisplayName="注释掉" sap:VirtualizedContainerService.HintSize="438,520" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="忽略的活动" sap:VirtualizedContainerService.HintSize="374,442" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="下载附件集" sap:VirtualizedContainerService.HintSize="352,318" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[FileTable.Select]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="sd:DataRow">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="file" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="正文" sap:VirtualizedContainerService.HintSize="336,183" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" AuthenticationType="None" BodyFormat="application/xml" DisplayName="HTTP 请求" EnableSSLVerification="True" EndPoint="[download_mainlink+file(&quot;file_url&quot;).ToString]" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" ResourcePath="[download_path+row(&quot;project_name&quot;).ToString+&quot;/&quot;+file(&quot;file_name&quot;).ToString]" TimeoutMS="6000">
+                                  <ui:HttpClient.Attachments>
+                                    <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                                  </ui:HttpClient.Attachments>
+                                  <ui:HttpClient.Cookies>
+                                    <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                                  </ui:HttpClient.Cookies>
+                                  <ui:HttpClient.Headers>
+                                    <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                                  </ui:HttpClient.Headers>
+                                  <ui:HttpClient.Parameters>
+                                    <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                                  </ui:HttpClient.Parameters>
+                                  <ui:HttpClient.UrlSegments>
+                                    <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                                  </ui:HttpClient.UrlSegments>
+                                </ui:HttpClient>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                        </ui:ForEach>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                  </ui:CommentOut>
+                </Sequence>
+              </ActivityAction>
+            </ui:BrowserScope.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:BrowserScope>
+          <Delay DisplayName="延迟" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="474,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
